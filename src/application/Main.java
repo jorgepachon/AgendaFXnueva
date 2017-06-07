@@ -12,9 +12,7 @@ public class Main extends Application {
 
     @Override
 	public void start(Stage primaryStage) {
-    	/* Crea el objeto con el modelo de datos (como si hiciera un acceso a una bbdd o
-		 * fichero) este objeto es el que luego se enviará a la Vista
-		 */
+    	
     	personData = new DatosPersona();
     	controlador = new Controlador();
 
