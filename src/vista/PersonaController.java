@@ -95,21 +95,26 @@ public class PersonaController {
     @FXML
     private void handleOk() {
     	if (isInputValid()) {
-    		persona = new Persona(null, null, null); //crear objeto persona y pasar por parametro los datos
-           
+    		//crear objeto persona y pasar por parametro los datos
+    		persona = new Persona(null, null, null); 
+    		//obtiene datos
     		persona.setNombre(NombreField.getText());
             persona.setApellido(ApellidoField.getText());
             persona.setEdad(EdadField.getText());
-            
+            //limpia los textfield
+            NombreField.setText("");
+            ApellidoField.setText("");
+            EdadField.setText("");
             //aqui añadimos la persona
             this.personData.addPerson(persona);   
-            Tabla.setItems(this.personData.getPersonData());
+           
             
             okClicked = true;
             
         }
     }
-
+    
+   
 	public void setControlador(Controlador controlador) {
 		// TODO Auto-generated method stub
 		this.controlador = controlador;

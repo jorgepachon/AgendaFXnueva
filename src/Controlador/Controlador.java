@@ -7,6 +7,7 @@ import Modelo.Persona;
 import application.Main;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -18,6 +19,7 @@ public class Controlador {
 	private AnchorPane rootLayout;
 
 	private DatosPersona personData;
+	private Persona persona;
 
 
 	public void AbrirVentanaPrincipal(Stage primaryStage){
@@ -33,7 +35,7 @@ public class Controlador {
             PersonaController vistacontroller = loader.getController();
             vistacontroller.setControlador(this);
             vistacontroller.setDatos(personData);
-
+            this.primaryStage.getIcons().add(new Image("file:resources/images/cajones.png"));
             // Show the scene containing the root layout.
             Scene scene = new Scene(rootLayout);
             primaryStage.setScene(scene);
@@ -49,15 +51,13 @@ public class Controlador {
 
 
     public void NewPerson(){
-    	Persona personNew = new Persona(null, null, null);
-    	//if(showPersonEditDialog(personNew))
-    		this.personData.addPerson(personNew);
+    	Persona persona = new Persona(null, null, null);
+    	
+    	this.personData.addPerson(persona);
+    		
 
     }
-
     
-   
-
 
 	public void setpersonData(DatosPersona personData) {
 		// TODO Auto-generated method stub
