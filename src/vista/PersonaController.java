@@ -76,7 +76,7 @@ public class PersonaController {
 
         NombreField.setText(persona.getNombre());
         ApellidoField.setText(persona.getApellido());
-        EdadField.setText(persona.getTelefono());
+        EdadField.setText(persona.getEdad());
     }
 
     private void ShowAlertNoSelectionPerson(Alert alert){
@@ -95,10 +95,16 @@ public class PersonaController {
     @FXML
     private void handleOk() {
     	if (isInputValid()) {
-            persona.setNombre(NombreField.getText());
+    		persona = new Persona(null, null, null); //crear objeto persona y pasar por parametro los datos
+           
+    		persona.setNombre(NombreField.getText());
             persona.setApellido(ApellidoField.getText());
-            persona.setTelefono(EdadField.getText());
-
+            persona.setEdad(EdadField.getText());
+            
+            //aqui añadimos la persona
+            this.personData.addPerson(persona);   
+            Tabla.setItems(this.personData.getPersonData());
+            
             okClicked = true;
             
         }
@@ -130,8 +136,8 @@ public class PersonaController {
             if (ApellidoField.getText() == null || ApellidoField.getText().length() == 0) {
                 errorMessage += "Apellido no válido!\n";
             }
-            if (EdadField.getText() == null || EdadField.getText().length() != 9) {
-                errorMessage += "Teléfono no válido!\n";
+            if (EdadField.getText() == null || EdadField.getText().length() == 0) {
+                errorMessage += "Edad no válida!\n";
             }else {
                 // try to parse the postal code into an int.
                 try {

@@ -3,12 +3,12 @@ package Modelo;
 public class Persona {
 	private String nombre;
 	private String apellido;
-	private String telefono;
+	private String edad;
 
 	public Persona(String nombre, String apellido, String telefono) {
 	    this.nombre = nombre;
 	    this.apellido = apellido;
-	    this.telefono = telefono;
+	    this.edad = edad;
 	}
 
 	public String getNombre() {
@@ -27,12 +27,12 @@ public class Persona {
 		this.apellido = apellido;
 	}
 
-	public String getTelefono() {
-		return telefono;
+	public String getEdad() {
+		return edad;
 	}
 
-	public void setTelefono(String telefono) {
-		this.telefono = telefono;
+	public void setEdad(String edad) {
+		this.edad = edad;
 	}
 
 
